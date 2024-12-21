@@ -1,6 +1,15 @@
 /* Codecademy: Youtube API - script1.js */
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://www.codecademy.com/", false);
+var url = "https://www.codecademy.com/"
+
+xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(xhr.responseText)
+    }
+}
+xhr.open("GET", url, true);
+xhr.setRequestHeader("Content-Type", "text/html")
+xhr.setRequestHeader("Referrer Policy", "strict-origin-when-cross-origin")
 xhr.send();
 
 console.log(xhr.status);
